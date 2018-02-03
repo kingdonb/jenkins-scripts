@@ -12,6 +12,7 @@
 # 55Mi	hipper-zeppelin-web-799d6c88d7-x4rlm	1m
 #  ...
 
+alias kg='kubectl --all-namespaces get'
 for i in $( kg po|awk '{ print $1 }'|grep -v NAMESPACE|sort -u ); do k top po -n $i; done|grep -v NAME|awk '{print $3 "\t" $1 "\t" $2}'|sort -hr|head
 
 
